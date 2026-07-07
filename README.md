@@ -190,7 +190,7 @@ _Please answer these two questions in a respective MD or text file (e.g. w1.txt 
 **W1.**
 You have taken the lead on this project which currently has the highest priority on our backlog. On one of the other apps you maintain, the product owner has contacted you personally and asked you to create some new features as well as fix a bug. You feel you cannot complete all of this work in a reasonable amount of time. How would you handle this situation?
 
-Answer:
+**Answer**:
 I’m going in with the assumption that I’m either already in a sprint or I’ve just started a sprint with my current workload planned out. Given that my current project has the highest priority. The first thing I would do is avoid immediately committing to the additional work without understanding the impact. I would make the product owner aware that what capacity I currently am at and already have committed work that I need to deliver.
 
 However, I wouldn’t just push their request aside. I would first try to understand what the bug fixes and new requirements are, how important or critical they are. That way I can get a better idea of whether it’s something simple or whether it’s a bigger piece of work that needs more planning.
@@ -204,7 +204,7 @@ For me, the main thing is having visibility of the work before committing to any
 **W2.**
 You have a preliminary meeting to discuss some of the features for an existing frontend application, one of the senior members of the team suggests a solution that you strongly believe will not work. What, if any, actions would you take?
 
-Answer:
+**Answer:**
 I think I would approach it in a way where I wouldn’t immediately dismiss the idea or assume that my solution is the correct one. I would first try to understand the reasoning behind their approach, as there may be some context or requirements that I may not be aware of.
 
 I would probably ask questions around the solution and see if there are parts of their idea that could work, but maybe require some adjustments or improvements based on concerns I have identified.
