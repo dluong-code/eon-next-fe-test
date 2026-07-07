@@ -194,10 +194,24 @@ Answer:
 I’m going in with the assumption that I’m either already in a sprint or I’ve just started a sprint with my current workload planned out. Given that my current project has the highest priority. The first thing I would do is avoid immediately committing to the additional work without understanding the impact. I would make the product owner aware that what capacity I currently am at and already have committed work that I need to deliver.
 
 However, I wouldn’t just push their request aside. I would first try to understand what the bug fixes and new requirements are, how important or critical they are. That way I can get a better idea of whether it’s something simple or whether it’s a bigger piece of work that needs more planning.
+
 I would probably schedule a quick 15–30 minute conversation with them to go through the issue, understand the requirements properly, and break it down into tickets. From there, I can look at the effort involved, any risks, and whether there are other areas of the application that could be impacted by the changes.
 
 If the bug is business-critical, we may need to adjust the current sprint priorities. If it’s lower priority, I would make sure it’s captured in the backlog and planned appropriately rather than impacting delivery of the highest-priority project. I would then raise this with the product owner of the higher priority project and discuss whether we have capacity to fit this in or whether we need to adjust some of the work that has already been planned for the current or upcoming sprint.
+
 For me, the main thing is having visibility of the work before committing to anything. I would want to understand my capacity, the effort involved, and the priority of the request rather than jumping straight into the work. Clear communication between myself, the product owners, and the wider team is important so expectations are managed properly and we can make the right decision based on business priority.
 
 **W2.**
 You have a preliminary meeting to discuss some of the features for an existing frontend application, one of the senior members of the team suggests a solution that you strongly believe will not work. What, if any, actions would you take?
+
+Answer:
+I think I would approach it in a way where I wouldn’t immediately dismiss the idea or assume that my solution is the correct one. I would first try to understand the reasoning behind their approach, as there may be some context or requirements that I may not be aware of.
+
+I would probably ask questions around the solution and see if there are parts of their idea that could work, but maybe require some adjustments or improvements based on concerns I have identified.
+
+However, if after understanding the solution I still strongly believe the approach wouldn’t work, I would explain my concerns with clear reasons, such as potential issues around performance, scalability, maintainability, or complexity. Rather than just disagreeing, I would suggest an alternative option that we could explore and compare the benefits and trade-offs between both solutions.
+Depending on the situation, I may suggest creating a spike ticket to investigate both approaches further and validate the best technical direction before committing too much time into development.
+
+If I felt it needed a deeper technical discussion, I may also speak with the senior developer separately to go through my thoughts and alternative approach. Not to avoid challenge, but to make sure I fully understand their solution and communicate my concerns respectfully, especially if they have already invested a lot of time into it.
+
+Ultimately, I think the focus should be on finding the best solution for the product and the team, rather than who came up with the idea. It’s normal for developers to have different opinions, but the decision should come from collaboration, evidence, and what provides the most value.
