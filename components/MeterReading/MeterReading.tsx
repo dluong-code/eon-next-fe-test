@@ -33,6 +33,11 @@ const MeterReading = () => {
       return;
     }
 
+    if (Number(value) < 1) {
+      setError("Meter reading must be between 00001 and 99999.");
+      return;
+    }
+
     if (Number(value) < Number(readings[0])) {
       setError(
         "This doesn't seem right? The meter reading you have entered is lower than your previous meter reading, please submit it again",
@@ -50,10 +55,11 @@ const MeterReading = () => {
 
   return (
     <div className={styles.wrapper}>
+      <h1 className={styles.heading}>Meter Reading</h1>
       <form className={styles.form} onSubmit={handleSubmit}>
         <div className={styles.fieldGroup}>
           <label className={styles.label} htmlFor="meter-reading">
-            Meter reading
+            Submit your meter reading
           </label>
           <input
             className={styles.meterInput}
@@ -84,7 +90,7 @@ const MeterReading = () => {
       ) : null}
 
       <section className={styles.listSection}>
-        <h2 className={styles.listTitle}>Added readings</h2>
+        <h2 className={styles.listTitle}>Previous meter readings</h2>
         {readings.length ? (
           <ul className={styles.list}>
             {readings.map((reading, index) => (
@@ -95,7 +101,7 @@ const MeterReading = () => {
             ))}
           </ul>
         ) : (
-          <p className={styles.emptyState}>No readings added yet.</p>
+          <p className={styles.emptyState}>No previous readings has been added yet.</p>
         )}
       </section>
     </div>
