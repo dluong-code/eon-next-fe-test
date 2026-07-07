@@ -8,7 +8,7 @@ const MAX_LENGTH = 5;
 
 const formatReading = (value: string) => value.padStart(MAX_LENGTH, "0");
 
-export default function AddNumber() {
+const MeterReading = () => {
   const [value, setValue] = useState("");
   const [readings, setReadings] = useState<string[]>([]);
   const [error, setError] = useState<string | undefined>(undefined);
@@ -21,6 +21,7 @@ export default function AddNumber() {
       setError("");
     }
   };
+  const errorId = "meter-reading-error";
 
   const handleUpcomingUsage = (readings: string[], count: number = 4) => {
     if (readings.length < count) return null;
@@ -32,9 +33,11 @@ export default function AddNumber() {
     setEstimateREading(Math.round(meterReadings[0] + averageDistance));
   };
 
-  const handleAdd = () => {
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+
     if (!value) {
-      setError("Enter up to 6 digits before adding a reading.");
+      setError(`Enter up to ${MAX_LENGTH} digits before adding a reading.`);
       return;
     }
 
@@ -54,7 +57,7 @@ export default function AddNumber() {
 
   return (
     <div className={styles.wrapper}>
-      <form className={styles.form} onSubmit={(e) => e.preventDefault()}>
+      <form className={styles.form} onSubmit={handleSubmit}>
         <div className={styles.fieldGroup}>
           <label className={styles.label} htmlFor="meter-reading">
             Meter reading
@@ -66,21 +69,23 @@ export default function AddNumber() {
             maxLength={MAX_LENGTH}
             name="meterReading"
             onChange={(event) => handleChange(event.target.value)}
-            placeholder="Enter up to 6 digits"
+            placeholder={`Enter up to ${MAX_LENGTH} digits`}
             type="text"
             value={value}
+            aria-invalid={Boolean(error)}
+            aria-describedby={error ? errorId : undefined}
           />
         </div>
-        <Button onClick={handleAdd} type="submit">
-          Add reading
-        </Button>
+        <Button type="submit">Add reading</Button>
       </form>
 
       {nextEstimateReading && (
-        <p className={styles.estimateText}>We predict your next reading would be: {nextEstimateReading}</p>
+        <p aria-live="polite" className={styles.estimateText}>
+          We predict your next reading would be: {nextEstimateReading}
+        </p>
       )}
       {error ? (
-        <p className={styles.error} role="alert">
+        <p className={styles.error} role="alert" id={errorId}>
           {error}
         </p>
       ) : null}
@@ -102,4 +107,6 @@ export default function AddNumber() {
       </section>
     </div>
   );
-}
+};
+
+export default MeterReading;
