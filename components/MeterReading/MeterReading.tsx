@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Button from "../Button";
+import { handleUpcomingUsage } from "./utils/handleUpcomingUsage";
 import styles from "./MeterReading.module.scss";
 
 const MAX_LENGTH = 5;
@@ -11,9 +12,11 @@ const formatReading = (value: string) => value.padStart(MAX_LENGTH, "0");
 const MeterReading = () => {
   const [value, setValue] = useState("");
   const [readings, setReadings] = useState<string[]>([]);
-  const [error, setError] = useState<string | undefined>(undefined);
-  const [nextEstimateReading, setEstimateREading] = useState<number | null>(null);
-  const handleChange = (nextValue: string) => {
+  const [error, setError] = useState<string | null>(null);
+  const [nextEstimateReading, setEstimateReading] = useState<number | null>(null);
+  const errorId = "meter-reading-error";
+
+  const handleMeterStringChange = (nextValue: string) => {
     const digitsOnly = nextValue.replace(/\D/g, "").slice(0, MAX_LENGTH);
     setValue(digitsOnly);
 
@@ -21,19 +24,8 @@ const MeterReading = () => {
       setError("");
     }
   };
-  const errorId = "meter-reading-error";
 
-  const handleUpcomingUsage = (readings: string[], count: number = 4) => {
-    if (readings.length < count) return null;
-
-    const meterReadings = readings.slice(0, count).map(Number);
-    const distances = meterReadings.slice(1).map((reading, index) => meterReadings[index] - reading);
-    const averageDistance = distances.reduce((sum, value) => sum + value, 0) / distances.length;
-
-    setEstimateREading(Math.round(meterReadings[0] + averageDistance));
-  };
-
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = (event: React.SubmitEvent<HTMLFormElement>) => {
     event.preventDefault();
 
     if (!value) {
@@ -48,11 +40,12 @@ const MeterReading = () => {
       return;
     }
     const newReadings = [formatReading(value), ...readings].sort((a, b) => Number(b) - Number(a));
+    const estimate = handleUpcomingUsage(newReadings);
 
     setReadings(newReadings);
     setValue("");
-    setError(undefined);
-    handleUpcomingUsage(newReadings);
+    setError(null);
+    setEstimateReading(estimate);
   };
 
   return (
@@ -68,7 +61,7 @@ const MeterReading = () => {
             inputMode="numeric"
             maxLength={MAX_LENGTH}
             name="meterReading"
-            onChange={(event) => handleChange(event.target.value)}
+            onChange={(event) => handleMeterStringChange(event.target.value)}
             placeholder={`Enter up to ${MAX_LENGTH} digits`}
             type="text"
             value={value}
