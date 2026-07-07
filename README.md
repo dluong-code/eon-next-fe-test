@@ -11,6 +11,7 @@ Welcome to the E.ON Next frontend technical assessment. This assessment evaluate
 You will have one week after receiving access to this repo to complete and submit your solution.
 
 ### Submission requirements
+
 1. **Clone this repository** to your local machine
 2. **Create a new private repository** on your personal GitHub account (**do not fork** this repository)
 3. **Push the cloned code** to your new private repository
@@ -28,7 +29,6 @@ You will have one week after receiving access to this repo to complete and submi
 
 ## Project Brief
 
-
 ### Overview
 
 Create a **meter reading collection application** that allows E.ON Next customers to submit their electricity meter readings for accurate billing.
@@ -40,6 +40,7 @@ Customers read the numbers from their electricity meter, and send them to us so 
 We have provided a barebones [NextJS](https://nextjs.org/docs) application created via [create-next-app](https://nextjs.org/docs/app/api-reference/cli/create-next-app) to help get you started.
 
 The tech stack includes:
+
 - **Next.js 16 (using React 19)** with App Router
 - **TypeScript 5** (strict mode enabled)
 - **Tailwind CSS 4** for styling
@@ -59,6 +60,7 @@ New meter readings should be displayed in a section marked "previous meter readi
 #### Validate meter readings
 
 New readings should be validated against the following rules:
+
 - a. They must be a 5 digit number between 00000 and 99999.
 - b. A new reading must be higher than the last _customer_ reading.
 
@@ -123,6 +125,7 @@ You are free to add any tooling or dependencies you feel will improve code quali
 You are welcome to use AI-powered coding tools (such as GitHub Copilot, Claude Code, Cursor, etc.) during this assessment. We use these tools at E.ON Next and value understanding how developers integrate them into their workflow.
 
 If you choose to use AI assistants:
+
 - Be prepared to discuss your approach and how you work with AI tools in the follow-up interview should you pass the assessment
 - Ensure your git commit history remains detailed and incremental, clearly showing your development process and decision-making
 - You should understand and be able to explain all code in your submission
@@ -130,6 +133,7 @@ If you choose to use AI assistants:
 ## Setup
 
 ### Prerequisites
+
 - [Node.js](https://nodejs.org/) (v20.19.0 - managed via `.nvmrc`)
 - [NVM (Node Version Manager)](https://github.com/nvm-sh/nvm) - recommended for Node version management
 - [Yarn](https://yarnpkg.com/) (v4.7.0 - managed via Corepack)
@@ -137,27 +141,35 @@ If you choose to use AI assistants:
 ### Installation
 
 1. **Set the correct Node.js version** (if using NVM):
+
    ```bash
    nvm use
    ```
+
    This will automatically switch to Node.js v20.19.0 as specified in `.nvmrc`.
 
 2. **Enable Corepack** to manage the Yarn version:
+
    ```bash
    corepack enable
    ```
+
    This enables Yarn v4.7.0 as specified in `package.json`.
 
 3. **Install dependencies**:
+
    ```bash
    yarn install
    ```
+
    Or simply:
+
    ```bash
    yarn
    ```
 
 4. **Start the development server**:
+
    ```bash
    yarn dev
    ```
@@ -168,7 +180,7 @@ If you choose to use AI assistants:
 
 - `yarn dev` - Start the development server
 - `yarn build` - Build the application for production
-- `yarn start` - Start the production 
+- `yarn start` - Start the production
 - `yarn test` - Not included by default - you'll need to set up your own testing framework
 
 ## Questions - Ways of Working
@@ -177,6 +189,15 @@ _Please answer these two questions in a respective MD or text file (e.g. w1.txt 
 
 **W1.**
 You have taken the lead on this project which currently has the highest priority on our backlog. On one of the other apps you maintain, the product owner has contacted you personally and asked you to create some new features as well as fix a bug. You feel you cannot complete all of this work in a reasonable amount of time. How would you handle this situation?
+
+Answer:
+I’m going in with the assumption that I’m either already in a sprint or I’ve just started a sprint with my current workload planned out. Given that my current project has the highest priority. The first thing I would do is avoid immediately committing to the additional work without understanding the impact. I would make the product owner aware that what capacity I currently am at and already have committed work that I need to deliver.
+
+However, I wouldn’t just push their request aside. I would first try to understand what the bug fixes and new requirements are, how important or critical they are. That way I can get a better idea of whether it’s something simple or whether it’s a bigger piece of work that needs more planning.
+I would probably schedule a quick 15–30 minute conversation with them to go through the issue, understand the requirements properly, and break it down into tickets. From there, I can look at the effort involved, any risks, and whether there are other areas of the application that could be impacted by the changes.
+
+If the bug is business-critical, we may need to adjust the current sprint priorities. If it’s lower priority, I would make sure it’s captured in the backlog and planned appropriately rather than impacting delivery of the highest-priority project. I would then raise this with the product owner of the higher priority project and discuss whether we have capacity to fit this in or whether we need to adjust some of the work that has already been planned for the current or upcoming sprint.
+For me, the main thing is having visibility of the work before committing to anything. I would want to understand my capacity, the effort involved, and the priority of the request rather than jumping straight into the work. Clear communication between myself, the product owners, and the wider team is important so expectations are managed properly and we can make the right decision based on business priority.
 
 **W2.**
 You have a preliminary meeting to discuss some of the features for an existing frontend application, one of the senior members of the team suggests a solution that you strongly believe will not work. What, if any, actions would you take?
