@@ -1,49 +1,72 @@
 .wrapper {
   display: grid;
   gap: 24px;
+  max-width: 800px;
+  width: 100%;
+  margin: 80px 16px;
+  padding: 20px;
+  box-shadow: 0 6px 12px 0 rgba(0, 0, 0, 0.05);
+  background-color: #fff;
+  border-radius: 8px;
+  border: 2px #5e0d98 solid;
+
+  @media (min-width: 768px) {
+    padding: 30px;
+  }
+}
+
+.form {
+  display: flex;
+  gap: 20px;
+  justify-content: space-between;
+  flex-direction: column;
+
+  @media (min-width: 768px) {
+    align-items: flex-end;
+    flex-direction: row;
+  }
 }
 
 .fieldGroup {
   display: grid;
   gap: 12px;
+  width: 100%;
 }
 
 .label {
-  font-size: clamp(2rem, 5vw, 2.35rem);
+  font-size: clamp(1.5rem, 6vw, 2rem);
   font-weight: 700;
   letter-spacing: -0.03em;
+  color: #36164a;
 }
 
-.input {
+.meterInput {
   width: 100%;
-  min-height: 88px;
+  min-height: 60px;
   padding: 0 36px;
   border: 2px solid rgba(255, 255, 255, 0.82);
   border-radius: 24px;
   background: rgba(22, 3, 48, 0.88);
-  color: #5e0d98;
+  color: #fff;
   font: inherit;
-  font-size: clamp(2rem, 5vw, 2.3rem);
+  font-size: clamp(1rem, 6vw, 1.5rem);
   outline: none;
+
+  &::placeholder {
+    color: #dfd3d9;
+  }
+
+  &:focus {
+    outline: 3px solid rgba(255, 113, 235, 0.8);
+    outline-offset: 3px;
+  }
+
+  @media (min-width: 768px) {
+    min-height: 70px;
+  }
 }
 
-.input::placeholder {
-  color: rgba(94, 13, 152, 0.4);
-}
-
-.input:focus {
-  outline: 3px solid rgba(255, 113, 235, 0.8);
-  outline-offset: 3px;
-}
-
-.metaRow {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  gap: 10px 20px;
-}
-
-.metaText {
+.estimateText {
   margin: 0;
   color: rgba(94, 13, 152, 0.58);
   font-size: clamp(1.2rem, 3.4vw, 1.45rem);
@@ -63,6 +86,7 @@
 }
 
 .listTitle {
+  color: #36164a;
   margin: 0;
   font-size: clamp(1.45rem, 4vw, 1.8rem);
   font-weight: 700;
@@ -102,10 +126,4 @@
 .emptyState {
   margin: 0;
   color: rgba(94, 13, 152, 0.6);
-}
-
-@media (min-width: 768px) {
-  .wrapper {
-    gap: 28px;
-  }
 }

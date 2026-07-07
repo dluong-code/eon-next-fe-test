@@ -4,7 +4,7 @@ import { useState } from "react";
 import Button from "../Button";
 import styles from "./MeterReading.module.scss";
 
-const MAX_LENGTH = 6;
+const MAX_LENGTH = 5;
 
 const formatReading = (value: string) => value.padStart(MAX_LENGTH, "0");
 
@@ -54,13 +54,13 @@ export default function AddNumber() {
 
   return (
     <div className={styles.wrapper}>
-      <div className={styles.fieldGroup}>
-        <form onSubmit={(e) => e.preventDefault()}>
+      <form className={styles.form} onSubmit={(e) => e.preventDefault()}>
+        <div className={styles.fieldGroup}>
           <label className={styles.label} htmlFor="meter-reading">
             Meter reading
           </label>
           <input
-            className={styles.input}
+            className={styles.meterInput}
             id="meter-reading"
             inputMode="numeric"
             maxLength={MAX_LENGTH}
@@ -70,13 +70,14 @@ export default function AddNumber() {
             type="text"
             value={value}
           />
-          <Button onClick={handleAdd} type="submit">
-            Add reading
-          </Button>
-        </form>
-      </div>
+        </div>
+        <Button onClick={handleAdd} type="submit">
+          Add reading
+        </Button>
+      </form>
+
       {nextEstimateReading && (
-        <p className={styles.metaText}>We predict your next reading would be: {nextEstimateReading}</p>
+        <p className={styles.estimateText}>We predict your next reading would be: {nextEstimateReading}</p>
       )}
       {error ? (
         <p className={styles.error} role="alert">
